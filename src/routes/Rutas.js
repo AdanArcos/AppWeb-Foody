@@ -16,7 +16,7 @@ export function Rutas() {
     <Route path='/' element={loadLayouts(Layout, Home)}/>
     <Route path='/alumno' element={loadLayouts(Layout, formAlumno)}/>
     <Route path='/persona' element={loadLayouts(Layout, AdminPersonas)}/>
-    <Route path='/formpersona' element={loadLayouts(Layout, FormPersonas)}/>
+    <Route path='/formpersona' element={<FormPersonas/>}/>
    </Routes> 
   )
 }

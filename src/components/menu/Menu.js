@@ -13,6 +13,11 @@ export function Menu() {
       </h2>
       </div>
       <div>
+      <h1>
+        Conecta con tus clientes
+      </h1>
+      </div>
+      <div>
       <img src={usuario} alt="Imagen" width="60" />
       </div>
   </nav>

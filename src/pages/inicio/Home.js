@@ -25,10 +25,10 @@ export function Home() {
     <img src={banner} alt="Imagen" className="w-25 d-block m-auto"/>
       <img src={logo} alt="Imagen" width="150" className="position-absolute top-0 start-50"/>
     </div >
-    <div className="mt-5 d-flex justify-content-around">
-    <img src={bebidas} alt="Imagen" className="w-25 rounded"/>
-    <img src={fuertes} alt="Imagen" className="w-25 rounded"/>
-    <img src={postres} alt="Imagen" className="w-25 rounded"/>
+    <div className="d-flex justify-content-around">
+    <img src={bebidas} alt="Imagen" className="w-25"/>
+    <img src={fuertes} alt="Imagen" className="w-25"/>
+    <img src={postres} alt="Imagen" className="w-25"/>
     </div>
     </div>
   );

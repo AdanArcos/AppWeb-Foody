@@ -91,26 +91,26 @@ export const Puestos = () => {
     }
   };
   return (
-    <div>
-      <div>Puesto</div>
+    <div style={{backgroundColor: "#F5F5F5", padding: "20px", borderRadius: "10px"}}>
+      <h2 style={{color: "#333", marginBottom: "20px"}}>Puesto</h2>
       <form onSubmit={enviar}>
-        <div>
-          <label className="label-default">Nombre</label>
-          <input type="text" name="nombre" onChange={handle}/>
-          <div className="error-message"></div>
+        <div style={{display: "flex", flexDirection: "column", marginBottom: "20px"}}>
+          <label style={{marginBottom: "5px", fontWeight: "bold"}}>Nombre:</label>
+          <input type="text" name="nombre" onChange={handle} style={{padding: "5px", borderRadius: "5px", border: "1px solid #CCC", width: "100%"}} />
+          <div className="error-message" style={{color: "red", marginTop: "5px"}}></div>
         </div>
-        <div>
-          <label>Direccion</label>
-          <input type="text" name="direccion" onChange={handle}/>
-          <div className="error-message"></div>
+        <div style={{display: "flex", flexDirection: "column", marginBottom: "20px"}}>
+          <label style={{marginBottom: "5px", fontWeight: "bold"}}>Direccion:</label>
+          <input type="text" name="direccion" onChange={handle} style={{padding: "5px", borderRadius: "5px", border: "1px solid #CCC", width: "100%"}} />
+          <div className="error-message" style={{color: "red", marginTop: "5px"}}></div>
         </div>
-        <div>
-          <label>Telefono</label>
-          <input type="text" name="telefono" onChange={handle}/>
-          <div className="error-message"></div>
+        <div style={{display: "flex", flexDirection: "column", marginBottom: "20px"}}>
+          <label style={{marginBottom: "5px", fontWeight: "bold"}}>Telefono:</label>
+          <input type="text" name="telefono" onChange={handle} style={{padding: "5px", borderRadius: "5px", border: "1px solid #CCC", width: "100%"}} />
+          <div className="error-message" style={{color: "red", marginTop: "5px"}}></div>
         </div>
-        <button>Guardar</button>
+        <button style={{backgroundColor: "#4CAF50", color: "white", padding: "10px 20px", border: "none", borderRadius: "3px", cursor: "pointer"}}>Guardar</button>
       </form>
     </div>
   );
-};
+}

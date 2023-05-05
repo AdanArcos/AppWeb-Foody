@@ -79,17 +79,17 @@ export const Registrar = () => {
       <h2 style={{color: "#333", marginBottom: "20px"}}>Registrar Vendedor</h2>
       <form onSubmit={enviar}>
         <div style={{display: "flex", flexDirection: "column", marginBottom: "20px"}}>
-          <label style={{marginBottom: "10px"}}>Nombre:</label>
+          <label style={{marginBottom: "10px", fontWeight: "bold"}}>Nombre:</label>
           <input type="text" name="nombre" onChange={handle} style={{padding: "5px", border: "1px solid #CCC", borderRadius: "3px"}} />
           <div className="error-message" style={{color: "red", marginTop: "5px"}}></div>
         </div>
         <div style={{display: "flex", flexDirection: "column", marginBottom: "20px"}}>
-          <label style={{marginBottom: "10px"}}>Apellidos:</label>
+          <label style={{marginBottom: "10px", fontWeight: "bold"}}>Apellidos:</label>
           <input type="text" name="apellidos" onChange={handle} style={{padding: "5px", border: "1px solid #CCC", borderRadius: "3px"}} />
           <div className="error-message" style={{color: "red", marginTop: "5px"}}></div>
         </div>
         <div style={{display: "flex", flexDirection: "column", marginBottom: "20px"}}>
-          <label style={{marginBottom: "10px"}}>Telefono:</label>
+          <label style={{marginBottom: "10px", fontWeight: "bold"}}>Telefono:</label>
           <input type="text" name="telefono" onChange={handle} style={{padding: "5px", border: "1px solid #CCC", borderRadius: "3px"}} />
           <div className="error-message" style={{color: "red", marginTop: "5px"}}></div>
         </div>

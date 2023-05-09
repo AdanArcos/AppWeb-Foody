@@ -22,75 +22,43 @@ export const PuestosExp = () => {
 
   const navigate = useNavigate();
   return (
-    <>
-      <Back />
-      <div>
-        <h2>Puestos disponibles</h2>
-      </div>
-      <div className="d-flex justify-content-evenly flex-wrap p-4 gap-2">
-        {puestos.map((el) => (
-          <div className="">
-            <div
-              id="carouselExampleControls"
-              className="carousel slide"
-              style={{ width: "250px", height: "250px" }}
-            >
+<>
+  <Back />
+  <div>
+    <h2></h2>
+  </div>
+  <ul style={{ listStyleType: "none", paddingLeft: 20, paddingRight: 20 }}>
+    {puestos.map((el) => (
+      <li key={el._id} className="d-flex justify-content-between align-items-center my-4">
+        <div className="d-flex align-items-center">
+          <div style={{ width: "250px", height: "250px" }}>
+            <div id={`carouselExampleControls-${el._id}`} className="carousel slide" style={{ height: "100%" }}>
               <div className="carousel-inner">
-                {el.imagenes.map((img) => (
-                  <div className="carousel-item active">
-                    <img
-                      src={`${host}/${img}`}
-                      style={{
-                        width: "250px",
-                        height: "250px",
-                        objectFit: "cover",
-                      }}
-                      className="d-block w-100"
-                      alt="..."
-                    />
+                {el.imagenes.map((img, i) => (
+                  <div key={`${el._id}-${i}`} className={`carousel-item ${i === 0 && "active"}`}>
+                    <img src={`${host}/${img}`} style={{ width: "250px", height: "250px", objectFit: "cover" }} className="d-block w-100" alt="..." />
                   </div>
                 ))}
               </div>
-              <button
-                className="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev"
-              >
-                <span
-                  className="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
+              <button className="carousel-control-prev" type="button" data-bs-target={`#carouselExampleControls-${el._id}`} data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Previous</span>
               </button>
-              <button
-                className="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide="next"
-              >
-                <span
-                  className="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
+              <button className="carousel-control-next" type="button" data-bs-target={`#carouselExampleControls-${el._id}`} data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Next</span>
               </button>
             </div>
-            <div>
-              <p className="text-center fw-bold">{el.nombre}</p>
-            </div>
-            <div>
-              <button
-                className="btn btn-warning mx-auto d-block"
-                onClick={() => navigate(`/Puestos/${el._id}`)}
-              >
-                Revisar
-              </button>
-            </div>
           </div>
-        ))}
-      </div>
-      {auth && <Link to={"/InserPuestos"}>Añadir puesto</Link>}
-    </>
+          <div className="mx-4">
+            <p className="fw-bold">{el.nombre}</p>
+          </div>
+        </div>
+        <button className="btn btn-warning" onClick={() => navigate(`/Puestos/${el._id}`)}>Revisar</button>
+      </li>
+    ))}
+  </ul>
+  {auth && <Link to={"/InserPuestos"}>Añadir puesto</Link>}
+</>
   );
 };

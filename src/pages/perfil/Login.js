@@ -26,37 +26,38 @@ export const Login = () => {
     setCuerpo({ ...cuerpo, [e.target.name]: e.target.value });
 
   return (
-    <div className="d-flex">
-      <form onSubmit={enviar} className="m-auto mt-5 w-25">
-        <div>
-          <label className="form-label">Nombre</label>
-          <input
-            className="form-control"
-            type="text"
-            onChange={handle}
-            name="correo"
-          />
-        </div>
-        <div>
-          <label className="form-label">Contrasena</label>
-          <input
-            className="form-control"
-            type="password"
-            onChange={handle}
-            name="password"
-          />
-        </div>
-        <div>
-          <button
-            type="submit"
-            className="btn btn-primary d-block mx-auto mt-2"
-          >
-            Iniciar sesion
-          </button>
-        </div>
-
-        {msg && <h2 className="text-danger">{msg}</h2>}
-      </form>
-    </div>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+    <form onSubmit={enviar} className="p-5 bg-white rounded shadow">
+      <h3 className="text-center mb-4">Iniciar sesión</h3>
+      <div className="form-floating mb-3">
+        <input
+          className="form-control"
+          type="text"
+          onChange={handle}
+          name="correo"
+          placeholder=" "
+          autoComplete="off"
+          required
+        />
+        <label htmlFor="correo">Usuario o correo electronico</label>
+      </div>
+      <div className="form-floating mb-4">
+        <input
+          className="form-control"
+          type="password"
+          onChange={handle}
+          name="password"
+          placeholder=" "
+          autoComplete="off"
+          required
+        />
+        <label htmlFor="password">Contraseña</label>
+      </div>
+      {msg && <p className="text-danger mb-3">{msg}</p>}
+      <button type="submit" className="btn btn-primary w-100">
+        Iniciar sesión
+      </button>
+    </form>
+  </div>
   );
 };

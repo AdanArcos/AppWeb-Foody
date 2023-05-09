@@ -21,92 +21,88 @@ export const PerfilEdit = () => {
     }
   };
   return (
-    <div>
-      <form onSubmit={env}>
-        <div className="row w-75 mx-auto mt-5">
-          <div className="col-4">
-            <label className="form-label">Nombre</label>
-            <input
-              type="text"
-              name="nombre"
-              className="form-control"
-              value={body.nombre}
-              onChange={handle}
-              required
-            />
-          </div>
-          <div className="col-4">
-            <label className="form-label">Apellido paterno</label>
-            <input
-              type="text"
-              name="apepat"
-              className="form-control"
-              value={body.apepat}
-              onChange={handle}
-              required
-            />
-          </div>
-          <div className="col-4">
-            <label className="form-label">Apellido materno</label>
-            <input
-              type="text"
-              name="apemat"
-              className="form-control"
-              value={body.apemat}
-              onChange={handle}
-              required
-            />
-          </div>
-          <div className="col-3">
-            <label className="form-label">telefono</label>
-            <input
-              type="text"
-              name="telefono"
-              className="form-control"
-              value={body.telefono}
-              onChange={handle}
-              required
-            />
-          </div>
-          <div className="col-4">
-            <label className="form-label">correo</label>
-            <input
-              type="text"
-              className="form-control"
-              value={body.correo}
-              onChange={handle}
-              disabled
-              required
-              pattern="^(\w|\d)*@(gmail|hotmail|outlook)\.(com|mx|es)$"
-            />
-          </div>
-          <div className="col-2">
-            <label className="form-label">edad</label>
-            <input
-              type="text"
-              name="edad"
-              className="form-control"
-              value={body.edad}
-              onChange={handle}
-              required
-            />
-          </div>
-          <div className="col-3">
-            <label className="form-label">Actualizar contraseña</label>
-            <input
-              type="password"
-              className="form-control"
-              name="password"
-              onChange={handle}
-              value={body.password}
-              required
-            />
-          </div>
-          <div className="col-12 d-flex justify-content-center align-items-end mt-4">
-            <button className="btn btn-warning">Actualizar</button>
-          </div>
-        </div>
-      </form>
+<div className="d-flex justify-content-center">
+  <form onSubmit={env} className="my-5 p-4 rounded shadow w-50">
+    <div className="mb-3">
+      <label className="form-label">Nombre:</label>
+      <input
+        type="text"
+        name="nombre"
+        className="form-control"
+        value={body.nombre}
+        onChange={handle}
+        required
+      />
     </div>
+    <div className="mb-3">
+      <label className="form-label">Apellido paterno:</label>
+      <input
+        type="text"
+        name="apepat"
+        className="form-control"
+        value={body.apepat}
+        onChange={handle}
+        required
+      />
+    </div>
+    <div className="mb-3">
+      <label className="form-label">Apellido materno:</label>
+      <input
+        type="text"
+        name="apemat"
+        className="form-control"
+        value={body.apemat}
+        onChange={handle}
+        required
+      />
+    </div>
+    <div className="mb-3">
+      <label className="form-label">Teléfono:</label>
+      <input
+        type="text"
+        name="telefono"
+        className="form-control"
+        value={body.telefono}
+        onChange={handle}
+        required
+      />
+    </div>
+    <div className="mb-3">
+      <label className="form-label">Correo:</label>
+      <input
+        type="text"
+        name="correo"
+        className="form-control"
+        value={body.correo}
+        onChange={handle}
+        required
+        pattern="^(\w|\d)*@(gmail|hotmail|outlook)\.(com|mx|es)$"
+      />
+    </div>
+    <div className="mb-3">
+      <label className="form-label">Edad:</label>
+      <input
+        type="text"
+        name="edad"
+        className="form-control"
+        value={body.edad}
+        onChange={handle}
+        required
+      />
+    </div>
+    <div className="mb-3">
+      <label className="form-label">Actualizar contraseña:</label>
+      <input
+        type="password"
+        name="password"
+        className="form-control"
+        value={body.password}
+        onChange={handle}
+        required
+      />
+    </div>
+    <button className="btn btn-primary">Actualizar</button>
+  </form>
+</div>
   );
 };

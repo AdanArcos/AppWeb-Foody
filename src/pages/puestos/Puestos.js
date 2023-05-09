@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Axios from '../../services/Axios';
 
 export const Puestos = () => {
+  
   const [body, setBody] = useState({
     nombre: "",
     direccion: "",

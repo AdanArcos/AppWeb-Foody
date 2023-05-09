@@ -96,5 +96,6 @@ export const Registrar = () => {
         <button style={{backgroundColor: "#4CAF50", color: "white", padding: "10px 20px", border: "none", borderRadius: "3px"}}>Guardar</button>
       </form>
     </div>
+    
   );
 }

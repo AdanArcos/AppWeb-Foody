@@ -21,88 +21,111 @@ export const PerfilEdit = () => {
     }
   };
   return (
-<div className="d-flex justify-content-center">
-  <form onSubmit={env} className="my-5 p-4 rounded shadow w-50">
-    <div className="mb-3">
-      <label className="form-label">Nombre:</label>
-      <input
-        type="text"
-        name="nombre"
-        className="form-control"
-        value={body.nombre}
-        onChange={handle}
-        required
-      />
-    </div>
-    <div className="mb-3">
-      <label className="form-label">Apellido paterno:</label>
-      <input
-        type="text"
-        name="apepat"
-        className="form-control"
-        value={body.apepat}
-        onChange={handle}
-        required
-      />
-    </div>
-    <div className="mb-3">
-      <label className="form-label">Apellido materno:</label>
-      <input
-        type="text"
-        name="apemat"
-        className="form-control"
-        value={body.apemat}
-        onChange={handle}
-        required
-      />
-    </div>
-    <div className="mb-3">
-      <label className="form-label">Teléfono:</label>
-      <input
-        type="text"
-        name="telefono"
-        className="form-control"
-        value={body.telefono}
-        onChange={handle}
-        required
-      />
-    </div>
-    <div className="mb-3">
-      <label className="form-label">Correo:</label>
-      <input
-        type="text"
-        name="correo"
-        className="form-control"
-        value={body.correo}
-        onChange={handle}
-        required
-        pattern="^(\w|\d)*@(gmail|hotmail|outlook)\.(com|mx|es)$"
-      />
-    </div>
-    <div className="mb-3">
-      <label className="form-label">Edad:</label>
-      <input
-        type="text"
-        name="edad"
-        className="form-control"
-        value={body.edad}
-        onChange={handle}
-        required
-      />
-    </div>
-    <div className="mb-3">
-      <label className="form-label">Actualizar contraseña:</label>
-      <input
-        type="password"
-        name="password"
-        className="form-control"
-        value={body.password}
-        onChange={handle}
-        required
-      />
-    </div>
-    <button className="btn btn-primary">Actualizar</button>
-  </form>
-</div>
-  );
-};
+    <div style={{ padding: "2rem" }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <form
+          onSubmit={env}
+          style={{
+            marginTop: "5rem",
+            padding: "2rem",
+            borderRadius: "0.5rem",
+            boxShadow: "0 0.5rem 1rem rgba(0, 0, 0, 0.1)",
+            width: "50%",
+          }}
+        >
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label style={{ marginBottom: "0.5rem" }}>Nombre:</label>
+            <input
+              type="text"
+              name="nombre"
+              className="form-control"
+              value={body.nombre}
+              onChange={handle}
+              required
+              style={{ width: "100%" }}
+            />
+          </div>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label style={{ marginBottom: "0.5rem" }}>Apellido paterno:</label>
+            <input
+              type="text"
+              name="apepat"
+              className="form-control"
+              value={body.apepat}
+              onChange={handle}
+              required
+              style={{ width: "100%" }}
+            />
+          </div>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label style={{ marginBottom: "0.5rem" }}>Apellido materno:</label>
+            <input
+              type="text"
+              name="apemat"
+              className="form-control"
+              value={body.apemat}
+              onChange={handle}
+              required
+              style={{ width: "100%" }}
+            />
+          </div>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label style={{ marginBottom: "0.5rem" }}>Teléfono:</label>
+            <input
+              type="text"
+              name="telefono"
+              className="form-control"
+              value={body.telefono}
+              onChange={handle}
+              required
+              style={{ width: "100%" }}
+            />
+          </div>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label style={{ marginBottom: "0.5rem" }}>Correo:</label>
+            <input
+              type="text"
+              name="correo"
+              className="form-control"
+              value={body.correo}
+              onChange={handle}
+              required
+              pattern="^(\w|\d)*@(gmail|hotmail|outlook)\.(com|mx|es)$"
+              style={{ width: "100%" }}
+              />
+              </div>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label style={{ marginBottom: "0.5rem" }}>Edad:</label>
+            <input
+              type="text"
+              name="edad"
+              className="form-control"
+              value={body.edad}
+              onChange={handle}
+              required
+              style={{ width: "100%" }}
+              />
+          </div>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label style={{ marginBottom: "0.5rem" }}>Actualizar contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              className="form-control"
+              value={body.password}
+              onChange={handle}
+              required
+              style={{ width: "100%" }}
+              />
+          </div>
+              <button
+              className="btn btn-primary"
+              style={{ width: "100%", marginTop: "1rem" }}
+              >
+              Actualizar
+              </button>
+              </form>
+              </div>
+              </div>
+              );
+              };

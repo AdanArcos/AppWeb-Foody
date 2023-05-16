@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import Axios, { host } from "../../services/Axios";
 import { Link, useNavigate } from "react-router-dom";
 import Back from "../../layouts/Back";
+
 export const PuestosExp = () => {
   const [puestos, setPuestos] = useState([]);
+
   useEffect(() => {
     consultar();
   }, []);
@@ -19,46 +21,69 @@ export const PuestosExp = () => {
   };
 
   const auth = localStorage.getItem("session");
-
   const navigate = useNavigate();
+
   return (
-<>
-  <Back />
-  <div>
-    <h2></h2>
-  </div>
-  <ul style={{ listStyleType: "none", paddingLeft: 20, paddingRight: 20 }}>
-    {puestos.map((el) => (
-      <li key={el._id} className="d-flex justify-content-between align-items-center my-4">
-        <div className="d-flex align-items-center">
-          <div style={{ width: "250px", height: "250px" }}>
-            <div id={`carouselExampleControls-${el._id}`} className="carousel slide" style={{ height: "100%" }}>
-              <div className="carousel-inner">
-                {el.imagenes.map((img, i) => (
-                  <div key={`${el._id}-${i}`} className={`carousel-item ${i === 0 && "active"}`}>
-                    <img src={`${host}/${img}`} style={{ width: "250px", height: "250px", objectFit: "cover" }} className="d-block w-100" alt="..." />
-                  </div>
-                ))}
+    <>
+      <Back />
+      <div style={{ padding: "2rem" }}>
+        <h2>Puestos Locales</h2>
+      </div>
+      <ul style={{ listStyleType: "none", paddingLeft: 20, paddingRight: 20 }}>
+        {puestos.map((el) => (
+          <li
+            key={el._id}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              margin: "1rem 0",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center" }}>
+              {el.imagenes.length > 0 && (
+                <img
+                  src={`${host}/${el.imagenes[0]}`}
+                  style={{
+                    width: "250px",
+                    height: "250px",
+                    objectFit: "cover",
+                    marginRight: "1rem",
+                  }}
+                  alt="..."
+                />
+              )}
+              <div>
+                <p style={{ fontWeight: "bold" }}>{el.nombre}</p>
               </div>
-              <button className="carousel-control-prev" type="button" data-bs-target={`#carouselExampleControls-${el._id}`} data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
-              </button>
-              <button className="carousel-control-next" type="button" data-bs-target={`#carouselExampleControls-${el._id}`} data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
-              </button>
             </div>
-          </div>
-          <div className="mx-4">
-            <p className="fw-bold">{el.nombre}</p>
-          </div>
-        </div>
-        <button className="btn btn-warning" onClick={() => navigate(`/Puestos/${el._id}`)}>Revisar</button>
-      </li>
-    ))}
-  </ul>
-  {auth && <Link to={"/InserPuestos"}>Añadir puesto</Link>}
-</>
+            <button
+              className="btn btn-warning"
+              onClick={() => navigate(`/Puestos/${el._id}`)}
+              style={{ marginLeft: "1rem" }}
+            >
+              Revisar
+            </button>
+          </li>
+        ))}
+      </ul>
+      {auth && (
+        <Link
+          to={"/InserPuestos"}
+          style={{
+            display: "block",
+            margin: "2rem 0",
+            padding: "0.5rem",
+            backgroundColor: "#FFB700",
+            color: "white",
+            borderRadius: "0.3rem",
+            textAlign: "center",
+            textDecoration: "none",
+          }}
+        >
+          Añadir puesto
+        </Link>
+      )}
+    </>
   );
 };

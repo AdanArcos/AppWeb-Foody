@@ -21,6 +21,7 @@ export const Create = () => {
     }
   };
   return (
+    <div className="p-5">
 <div className="d-flex justify-content-center">
   <form onSubmit={env} className="my-5 p-4 rounded shadow w-50">
     <div className="row mb-3">
@@ -119,6 +120,7 @@ export const Create = () => {
       <button className="btn btn-primary">Guardar</button>
     </div>
   </form>
+</div>
 </div>
   );
 };

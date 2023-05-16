@@ -119,7 +119,8 @@ export const PuestosForm = () => {
   };
 
   return (
-    <div>
+    <div className="p-5">
+      <h1 className="p-3"></h1>
       <div>
         <h2 className="text-center">Crea un nuevo restaurante o Puesto</h2>
       </div>

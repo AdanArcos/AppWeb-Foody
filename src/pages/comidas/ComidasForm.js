@@ -34,9 +34,10 @@ export const ComidasForm = () => {
   };
 
   return (
-    <div>
+    <div className="p-5">
+      <h1 className="p-3"></h1>
       <div>
-        <h2 className="text-center">Registrar Comida</h2>
+        <h2 className="text-center">Añadir Platillo</h2>
       </div>
       <form onSubmit={enviar} className="p-4 row">
         <div className="col-4">

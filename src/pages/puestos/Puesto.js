@@ -23,7 +23,7 @@ export const Puesto = () => {
   return (
     <div>
       <Back />
-      {!puesto && <h2 className="text-danger">No se encontro el puesto</h2>}
+      {!puesto && <h2 className="text-danger">No se encontró el puesto</h2>}
       {puesto && <Success puesto={puesto} />}
     </div>
   );
@@ -65,64 +65,29 @@ const Success = ({ puesto }) => {
   };
 
   return (
-    <div className="p-2">
+    <div className="p-5">
       <h2 className="text-center">{puesto.nombre}</h2>
       <div className="d-flex justify-around">
         <div className="w-50">
-          <div
-            id="carouselExampleControls"
-            className="carousel slide w-100"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-inner">
-              {puesto.imagenes.map((img) => (
-                <div className="carousel-item active">
-                  <img
-                    src={`${host}/${img}`}
-                    className="d-block w-100"
-                    alt="..."
-                  />
-                </div>
-              ))}
-            </div>
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleControls"
-              data-bs-slide="prev"
-            >
-              <span
-                className="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleControls"
-              data-bs-slide="next"
-            >
-              <span
-                className="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
+          <img
+            src={`${host}/${puesto.imagenes[0]}`}
+            className="d-block w-60"
+            alt="..."
+            style={{
+              objectFit: "cover",
+              borderRadius: "50%",
+              height: "300px",
+              width: "300px",
+            }}
+          />
         </div>
-        {/* <img
-          src={host + "/" + puesto.imagenes[0]}
-          alt="imagen"
-          style={{ width: " 500px" }}
-        /> */}
         <div className="p-4">
           <p>
-            <span className="fw-bold">Direccion: </span>
+            <span className="fw-bold">Dirección: </span>
             {puesto.direccion}
           </p>
           <p>
-            <span className="fw-bold">Telefono: </span>
+            <span className="fw-bold">Teléfono: </span>
             {puesto.vendedor.telefono}
           </p>
           <p>
@@ -144,86 +109,58 @@ const Success = ({ puesto }) => {
         </div>
       </div>
       <div>
-        <h3>Productos</h3>
-        <div className="d-flex justify-content-evenly">
+      <h3>Productos</h3>
+        <div className="d-flex flex-wrap justify-content-center">
           {comidas.length === 0 && (
-            <h2 className="text-danger">Sin productos aun</h2>
+            <h2 className="text-danger">Este vendedor aun no ha agregago ningun platillo</h2>
           )}
-          {comidas.map((el) => (
-            <div style={{ width: "250px" }}>
-              <div style={{ width: "250px", height: "250px" }}>
-                <div
-                  id="carouselExampleControls"
-                  className="carousel slide w-100"
-                  data-bs-ride="carousel"
-                >
-                  <div className="carousel-inner">
-                    {el.imagenes.map((img, i) => (
-                      <div className={`carousel-item ${i === 0 && "active"}`}>
-                        <img
-                          src={`${host}/${img}`}
-                          className="d-block w-100"
-                          style={{
-                            height: "250px",
-                            width: "250px",
-                            objectFit: "contain",
-                          }}
-                          alt="..."
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <button
-                    className="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleControls"
-                    data-bs-slide="prev"
-                  >
-                    <span
-                      className="carousel-control-prev-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Previous</span>
-                  </button>
-                  <button
-                    className="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleControls"
-                    data-bs-slide="next"
-                  >
-                    <span
-                      className="carousel-control-next-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Next</span>
-                  </button>
+          <div
+            className="d-flex flex-wrap"
+            style={{
+              maxHeight: "400px",
+              overflowY: "auto",
+              paddingRight: "16px",
+            }}
+          >
+            {comidas.map((el) => (
+              <div
+                key={el._id}
+                className="card m-2"
+                style={{ width: "250px" }}
+              >
+                <img
+                  src={`${host}/${el.imagenes[0]}`}
+                  className="card-img-top"
+                  alt="..."
+                  style={{ height: "200px", objectFit: "cover" }}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{el.nombre}</h5>
+                  <p className="card-text">${el.precio}</p>
+                  {auth && JSON.parse(auth)[0]._id === puesto.vendedor._id && (
+                    <button
+                      className="btn btn-warning"
+                      onClick={(e) => editComida(e, el)}
+                    >
+                      Editar
+                    </button>
+                  )}
                 </div>
               </div>
-              <p className="m-1">
-                <span className="fw-bold">Comida: </span>
-                {el.nombre}
-              </p>
-              <p className="m-1">
-                <span className="fw-bold">Precio: </span> ${el.precio}
-              </p>
-              <div>
-                {auth && JSON.parse(auth)[0]._id === puesto.vendedor._id && (
-                  <button
-                    className="btn btn-warning"
-                    onClick={(e) => editComida(e, el)}
-                  >
-                    Editar
-                  </button>
-                )}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       {auth && JSON.parse(auth)[0]._id === puesto.vendedor._id && (
-        <button onClick={addComida} className="btn btn-success m-2">
-          Agregar comidas
-        </button>
+        <div className="d-flex justify-content-center">
+          <button
+            onClick={addComida}
+            className="btn btn-success mt-4"
+            style={{ width: "200px" }}
+          >
+            Agregar comidas
+          </button>
+        </div>
       )}
     </div>
   );

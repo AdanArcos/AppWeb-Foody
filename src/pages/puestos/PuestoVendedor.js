@@ -23,6 +23,8 @@ export const PuestoVendedor = () => {
   const auth = localStorage.getItem("session");
 
   return (
+    <div className="p-5">
+      <h1 className="p-3"></h1>
     <div>
       <h2 className="text-center">Puestos</h2>
       <div className="d-flex justify-content-evenly flex-wrap">
@@ -95,6 +97,7 @@ export const PuestoVendedor = () => {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };

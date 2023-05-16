@@ -66,7 +66,6 @@ export function Menu() {
         <div style={userImageStyle}>
           <img src={usuario} alt="Imagen" width="100%" />
         </div>
-        <h3 style={{margin: 0, color: "#333", fontWeight: "bold"}}>Iniciar Sesión</h3>
       </div>
     </nav>
   );

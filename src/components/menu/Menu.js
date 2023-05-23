@@ -13,7 +13,7 @@ export function Menu() {
     top: 0,
     left: 0,
     right: 0,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#F3F1E9", // Color similar a la barra de navegación de Carne Premium XO
     boxShadow: "0px 2px 4px rgba(0,0,0,0.2)",
     zIndex: 1,
     display: "flex",
@@ -21,17 +21,28 @@ export function Menu() {
     alignItems: "center",
     padding: "10px",
     boxSizing: "border-box",
+    fontFamily: "Arial, sans-serif", // Fuente de la barra de navegación
+  };
+  
+  const linkContainerStyle = {
+    display: "flex",
+    gap: "20px",
+    marginLeft: "20px",
+  };
+  
+  const linkStyle = {
+    color: "#555", // Color de los enlaces
+    textDecoration: "none",
+    fontSize: "18px",
+    fontWeight: "bold",
+    letterSpacing: "1px",
   };
   
   const logoStyle = {
     display: "flex",
     alignItems: "center",
     cursor: "pointer",
-  };
-  
-  const imageStyle = {
-    width: "40px",
-    marginRight: "10px",
+    marginLeft: "20px",
   };
   
   const titleStyle = {
@@ -46,6 +57,7 @@ export function Menu() {
     display: "flex",
     alignItems: "center",
     cursor: "pointer",
+    marginRight: "20px",
   };
   
   const userImageStyle = {
@@ -57,11 +69,11 @@ export function Menu() {
   
   return (
     <nav className="navbar" style={menuStyle}>
-      <div className="logo" onClick={exp} style={logoStyle}>
-        <img src={explorar1} alt="Imagen" style={imageStyle} />
-        <h2 style={titleStyle}>Explorar</h2>
+      <div style={linkContainerStyle}>
+        <Link to="/" style={linkStyle}>Inicio</Link>
+        <Link to="/create" style={linkStyle}>Registra tu negocio</Link>
+        <Link to="/Puestos" style={linkStyle}>Explora</Link>
       </div>
-      <h1 style={{textAlign: "center", fontSize: "32px", fontWeight: "bold", color: "#555", margin: 0, padding: "10px"}}>Conecta con tus clientes</h1>
       <div className="user" onClick={login} style={userStyle}>
         <div style={userImageStyle}>
           <img src={usuario} alt="Imagen" width="100%" />

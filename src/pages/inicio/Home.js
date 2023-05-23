@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Axios from "../../services/Axios";
-import banner from "../../assets/banner.png";
-import bebidas from "../../assets/bebidas.png";
 import logo from "../../assets/LOGO_FOODY.png";
-import fuertes from "../../assets/pfuerte.jpg";
-import postres from "../../assets/postres.png";
+import banner from "../../assets/banner.png";
 
 export function Home() {
   const [personas, setPersonas] = useState([]);
+
   const consultarPersonas = async () => {
     const consultar = await Axios.get("/personas");
     console.log(consultar.data);
@@ -16,45 +14,32 @@ export function Home() {
 
   useEffect(() => {
     consultarPersonas();
-    document.body.style.backgroundImage = `url(${banner})`;
-    document.body.style.backgroundSize = "100%";
+
+    if (window.location.pathname === "/") {
+      document.body.style.backgroundImage = `linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)), url(${banner})`;
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundAttachment = "fixed";
+    } else {
+      document.body.style.backgroundImage = "none";
+    }
+
     return () => {
-      document.body.style.background = `#fff`;
+      document.body.style.backgroundImage = "none";
     };
   }, []);
 
   return (
     <div>
-      <div className="d-flex border">
+      <div className="d-flex">
         <img
           src={logo}
           alt="Imagen"
           className="m-auto"
-          style={{ width: "auto", height: "400px", padding: "2vw" }}
+          style={{ width: "auto", height: "700px", padding: "1vw", filter: "brightness(0)" }}
         />
       </div>
-      <div className="row w-100 mx-auto">
-        <div className="col-3"></div>
-        <img
-          src={bebidas}
-          alt="Imagen"
-          className="col-2"
-          style={{ left: 0, bottom: 0 }}
-        />
-        <img
-          src={fuertes}
-          alt="Imagen"
-          className="col-2"
-          style={{ left: "33.33%", bottom: 0 }}
-        />
-        <img
-          src={postres}
-          alt="Imagen"
-          className="col-2"
-          style={{ right: 0, bottom: 0 }}
-        />
-        <div className="col-3"></div>
-      </div>
+      <h2 style={{ color: "white", textAlign: "center", textTransform: "uppercase" }}>CONECTA CON TUS CLIENTES</h2>
     </div>
   );
 }

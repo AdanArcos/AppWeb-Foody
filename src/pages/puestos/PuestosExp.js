@@ -26,10 +26,27 @@ export const PuestosExp = () => {
 
   return (
     <>
-      <div style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)), url(${banner})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", padding: "20px", marginLeft: "-20px", marginRight: "-20px", height: "500px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <h2 style={{ color: "#FFF", marginBottom: "20px", fontFamily: "WOODCUT" }}>EXPLORA LOS PUESTOS LOCALES</h2>
+    <h2 className="p-4"></h2>
+      <div
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)), url(${banner})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          padding: "20px",
+          marginLeft: "-20px",
+          marginRight: "-20px",
+          height: "500px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <h2 style={{ color: "#FFF", marginBottom: "20px", fontFamily: "WOODCUT" }}>
+          EXPLORA LOS PUESTOS LOCALES
+        </h2>
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", paddingRight: 30, paddingLeft:30 }}>
         {puestos.map((el) => (
           <div
             key={el._id}
@@ -39,6 +56,10 @@ export const PuestosExp = () => {
               flexDirection: "column",
               alignItems: "center",
               margin: "1rem 0",
+              boxShadow: "0px 2px 4px rgba(0,0,0,0.2)",
+              borderRadius: "0.5rem",
+              padding: "1rem",
+              backgroundColor: "#F3F1E9",
             }}
           >
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -50,21 +71,35 @@ export const PuestosExp = () => {
                     height: "250px",
                     objectFit: "cover",
                     marginRight: "1rem",
+                    borderRadius: "0.5rem",
                   }}
                   alt="..."
                 />
               )}
               <div>
-                <p style={{ fontWeight: "bold" }}>{el.nombre}</p>
-              </div>
-            </div>
-            <button
+                <p style={{ fontFamily: "WOODCUT" }}>{el.nombre}</p>
+                <button
               className="btn btn-warning"
               onClick={() => navigate(`/Puestos/${el._id}`)}
-              style={{ marginTop: "1rem" }}
+              style={{
+                marginTop: "1rem",
+                backgroundColor: "#FFB700",
+                color: "white",
+                borderRadius: "0.3rem",
+                padding: "0.5rem 1rem",
+                border: "none",
+                cursor: "pointer",
+                transition: "background-color 0.3s",
+              }}
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "#FFD700")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "#FFB700")}
             >
               Revisar
             </button>
+              </div>
+
+            </div>
+
           </div>
         ))}
       </div>

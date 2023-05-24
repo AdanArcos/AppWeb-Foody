@@ -54,7 +54,7 @@ export function Home() {
           src={logo}
           alt="Imagen"
           className="m-auto fade-image"
-          style={{ width: "auto", height: "600px", padding: "5vw" }}
+          style={{ width: "auto", height: "400px", padding: "1vw", paddingTop: 100 }}
         />
       </div>
       <h2

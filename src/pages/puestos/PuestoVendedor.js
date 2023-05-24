@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Axios, { host } from "../../services/Axios";
+import banner from "../../assets/banner.png";
 
 export const PuestoVendedor = () => {
   const [puestos, setPuestos] = useState([]);
@@ -23,63 +24,43 @@ export const PuestoVendedor = () => {
   const auth = localStorage.getItem("session");
 
   return (
-    <div className="p-5">
-      <h1 className="p-3"></h1>
     <div>
-      <h2 className="text-center">Puestos</h2>
+      <h2 className="p-4"></h2>
+      <div
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)), url(${banner})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          padding: "20px",
+          marginLeft: "-20px",
+          marginRight: "-20px",
+          height: "500px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <h2 style={{ color: "#FFF", marginBottom: "20px", fontFamily: "WOODCUT" }}>
+          MIS RESTAURANTES
+        </h2>
+      </div>
       <div className="d-flex justify-content-evenly flex-wrap">
         {puestos.map((el) => (
-          <div className="m-4">
-            <div
-              id="carouselExampleControls"
-              className="carousel slide"
-              style={{ width: "250px", height: "250px" }}
-            >
-              <div className="carousel-inner">
-                {el.imagenes.map((img) => (
-                  <div className="carousel-item active">
-                    <img
-                      src={`${host}/${img}`}
-                      style={{
-                        width: "250px",
-                        height: "250px",
-                        objectFit: "cover",
-                      }}
-                      className="d-block w-100"
-                      alt="..."
-                    />
-                  </div>
-                ))}
-              </div>
-              <button
-                className="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev"
-              >
-                <span
-                  className="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span className="visually-hidden">Previous</span>
-              </button>
-              <button
-                className="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide="next"
-              >
-                <span
-                  className="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span className="visually-hidden">Next</span>
-              </button>
+          <div
+            key={el._id}
+            className="m-4"
+            style={{ width: "250px", boxShadow: "0px 2px 4px rgba(0,0,0,0.2)", borderRadius: "0.5rem", padding: "1rem", backgroundColor: "#F3F1E9" }}
+          >
+            <img
+              src={`${host}/${el.imagenes[0]}`}
+              alt={el.nombre}
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }}
+            />
+            <div style={{fontFamily: "WOODCUT"}}>
+              <p className="text-center p-3">{el.nombre}</p>
             </div>
-            <div>
-              <p className="text-center fw-bold">{el.nombre}</p>
-            </div>
-            <div>
+            <div className="p-2">
               <button
                 className="btn btn-warning mx-auto d-block"
                 onClick={() => navigate(`/Puestos/${el._id}`)}
@@ -97,7 +78,6 @@ export const PuestoVendedor = () => {
           </div>
         )}
       </div>
-    </div>
     </div>
   );
 };

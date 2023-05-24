@@ -21,20 +21,42 @@ export const Create = () => {
       console.log(err);
     }
   };
-  
+
   return (
     <div>
-      <div style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)), url(${banner})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", padding: "20px", marginLeft: "-20px", marginRight: "-20px", height: "500px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <h2 style={{ color: "#FFF", marginBottom: "20px", fontFamily:"WOODCUT" }}>REGISTRA TU NEGOCIO</h2>
+      <h2 className="p-4"></h2>
+      <div
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)), url(${banner})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          padding: "20px",
+          marginLeft: "-20px",
+          marginRight: "-20px",
+          height: "500px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <h2 style={{ color: "#FFF", marginBottom: "20px", fontFamily: "WOODCUT" }}>
+          REGISTRA TU NEGOCIO
+        </h2>
       </div>
-      <div className="p-5">
-       <h2 style={{ fontSize: 30, textAlign: "center", fontFamily: "WOODCUT",  }}>REGISTRATE CON NOSOTROS PARA EMPEZAR A HACER CRECER TU NEGOCIO</h2>
+      <div className="p-4">
+        <h2 className="p-4"></h2>
+        <h2
+          style={{ fontSize: 30, textAlign: "center", fontFamily: "WOODCUT", color: "#333" }}
+        >
+          REGISTRATE CON NOSOTROS PARA EMPEZAR A HACER CRECER TU NEGOCIO
+        </h2>
       </div>
       <div className="d-flex justify-content-center">
-        <form onSubmit={env} className="my-5 p-4 rounded shadow w-50">
+        <form onSubmit={env} className="my-5 p-5 rounded shadow w-50" style={{ backgroundColor: "#F3F1E9" }}>
           <div className="row mb-3">
             <div className="col">
-              <label className="form-label">Nombre</label>
+              <label className="form-label">Nombre:</label>
               <input
                 type="text"
                 name="nombre"
@@ -45,7 +67,7 @@ export const Create = () => {
               />
             </div>
             <div className="col">
-              <label className="form-label">Apellido paterno</label>
+              <label className="form-label">Apellido paterno:</label>
               <input
                 type="text"
                 name="apepat"
@@ -56,7 +78,7 @@ export const Create = () => {
               />
             </div>
             <div className="col">
-              <label className="form-label">Apellido materno</label>
+              <label className="form-label">Apellido materno:</label>
               <input
                 type="text"
                 name="apemat"
@@ -69,7 +91,7 @@ export const Create = () => {
           </div>
           <div className="row mb-3">
             <div className="col">
-              <label className="form-label">Teléfono</label>
+              <label className="form-label">Teléfono:</label>
               <input
                 type="text"
                 name="telefono"
@@ -80,7 +102,7 @@ export const Create = () => {
               />
             </div>
             <div className="col">
-              <label className="form-label">Correo</label>
+              <label className="form-label">Correo:</label>
               <input
                 type="text"
                 name="correo"
@@ -92,7 +114,7 @@ export const Create = () => {
               />
             </div>
             <div className="col">
-              <label className="form-label">Edad</label>
+              <label className="form-label">Edad:</label>
               <input
                 type="text"
                 name="edad"
@@ -105,7 +127,7 @@ export const Create = () => {
           </div>
           <div className="row mb-3">
             <div className="col">
-              <label className="form-label">Escriba una contraseña</label>
+              <label className="form-label">Escribe una contraseña:</label>
               <input
                 type="password"
                 className="form-control"
@@ -116,7 +138,20 @@ export const Create = () => {
             </div>
           </div>
           <div className="d-flex justify-content-end">
-            <button className="btn btn-primary">Guardar</button>
+            <button
+              className="btn btn-primary"
+              style={{
+                backgroundColor: "#FFB700",
+                borderRadius: "0.3rem",
+                border: "none",
+                cursor: "pointer",
+                transition: "background-color 0.3s",
+              }}
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "#FFD700")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "#FFB700")}
+            >
+              Guardar
+            </button>
           </div>
         </form>
       </div>

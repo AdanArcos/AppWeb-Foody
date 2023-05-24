@@ -20,6 +20,24 @@ export function Home() {
       document.body.style.backgroundSize = "cover";
       document.body.style.backgroundRepeat = "no-repeat";
       document.body.style.backgroundAttachment = "fixed";
+
+      const image = document.querySelector(".fade-image");
+      if (image) {
+        image.style.opacity = 0;
+        setTimeout(() => {
+          image.style.transition = "opacity 1s";
+          image.style.opacity = 1;
+        }, 100);
+      }
+
+      const text = document.querySelector(".slide-text");
+      if (text) {
+        text.style.transform = "translateX(100%)";
+        setTimeout(() => {
+          text.style.transition = "transform 1s";
+          text.style.transform = "translateX(0)";
+        }, 100);
+      }
     } else {
       document.body.style.backgroundImage = "none";
     }
@@ -35,11 +53,22 @@ export function Home() {
         <img
           src={logo}
           alt="Imagen"
-          className="m-auto"
-          style={{ width: "auto", height: "700px", padding: "1vw", filter: "brightness(0)" }}
+          className="m-auto fade-image"
+          style={{ width: "auto", height: "600px", padding: "5vw" }}
         />
       </div>
-      <h2 style={{ color: "white", textAlign: "center", textTransform: "uppercase" }}>CONECTA CON TUS CLIENTES</h2>
+      <h2
+        className="slide-text"
+        style={{
+          color: "white",
+          textAlign: "center",
+          textTransform: "uppercase",
+          fontSize: 50,
+          fontFamily: "WOODCUT", 
+        }}
+      >
+        CONECTA CON TUS CLIENTES
+      </h2>
     </div>
   );
 }

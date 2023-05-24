@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "../../services/Axios";
 import { useNavigate } from "react-router-dom";
+import banner from "../../assets/banner.png";
 
 export const Login = () => {
   const [cuerpo, setCuerpo] = useState(null);
@@ -26,6 +27,14 @@ export const Login = () => {
     setCuerpo({ ...cuerpo, [e.target.name]: e.target.value });
 
   return (
+
+    <div>
+    <div style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)), url(${banner})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", padding: "20px", marginLeft: "-20px", marginRight: "-20px", height: "500px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <h2 style={{ color: "#FFF", marginBottom: "20px", fontSize: 40, fontFamily: "WOODCUT" }}>INICIO DE SESION</h2>
+    </div>
+    <div className="p-5">
+      <h2 style={{ fontSize: 30, textAlign: "center", fontFamily: "WOODCUT",  }}>INICIA SESION CON TU USUARIO</h2>
+    </div>
     <div className="d-flex justify-content-center align-items-center vh-100">
     <form onSubmit={enviar} className="p-5 bg-white rounded shadow">
       <h3 className="text-center mb-4">Iniciar sesión</h3>
@@ -58,6 +67,7 @@ export const Login = () => {
         Iniciar sesión
       </button>
     </form>
+  </div>
   </div>
   );
 };

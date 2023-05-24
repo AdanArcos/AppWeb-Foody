@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios, { host } from "../../services/Axios";
 import { Link, useNavigate } from "react-router-dom";
 import Back from "../../layouts/Back";
+import banner from "../../assets/banner.png";
 
 export const PuestosExp = () => {
   const [puestos, setPuestos] = useState([]);
@@ -25,17 +26,17 @@ export const PuestosExp = () => {
 
   return (
     <>
-      <Back />
-      <div style={{ padding: "2rem" }}>
-        <h2>Puestos Locales</h2>
+      <div style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)), url(${banner})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", padding: "20px", marginLeft: "-20px", marginRight: "-20px", height: "500px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <h2 style={{ color: "#FFF", marginBottom: "20px", fontFamily: "WOODCUT" }}>EXPLORA LOS PUESTOS LOCALES</h2>
       </div>
-      <ul style={{ listStyleType: "none", paddingLeft: 20, paddingRight: 20 }}>
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
         {puestos.map((el) => (
-          <li
+          <div
             key={el._id}
             style={{
+              flexBasis: "30%",
               display: "flex",
-              justifyContent: "space-between",
+              flexDirection: "column",
               alignItems: "center",
               margin: "1rem 0",
             }}
@@ -60,13 +61,13 @@ export const PuestosExp = () => {
             <button
               className="btn btn-warning"
               onClick={() => navigate(`/Puestos/${el._id}`)}
-              style={{ marginLeft: "1rem" }}
+              style={{ marginTop: "1rem" }}
             >
               Revisar
             </button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
       {auth && (
         <Link
           to={"/InserPuestos"}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Axios, { host } from "../../services/Axios";
 import Back from "../../layouts/Back";
+import banner from "../../assets/banner_2.jpg";
 
 export const Puesto = () => {
   const [puesto, setPuesto] = useState(null);
@@ -65,8 +66,10 @@ const Success = ({ puesto }) => {
   };
 
   return (
-    <div className="p-5">
-      <h2 className="text-center">{puesto.nombre}</h2>
+    <div>
+      <div style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)), url(${banner})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", padding: "20px", marginLeft: "-20px", marginRight: "-20px", height: "500px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <h2 style={{ color: "#FFF", marginBottom: "20px", fontSize: 40 }}>{puesto.nombre}</h2>
+      </div>
       <div className="d-flex justify-around">
         <div className="w-50">
           <img
@@ -95,7 +98,7 @@ const Success = ({ puesto }) => {
             {puesto.vendedor.correo}
           </p>
           <p>
-            <span className="fw-bold">Vendor: </span>
+            <span className="fw-bold">Propietario: </span>
             {puesto.vendedor.nombre} {puesto.vendedor.apepat}{" "}
             {puesto.vendedor.apemat}
           </p>
